@@ -187,3 +187,18 @@ dl.meta dd p { font-size: 16.5px; }
   dl.meta dt { border-bottom: none; padding-bottom: 2px; }
   dl.meta dd { padding-top: 2px; }
 }
+
+/* Product screens: real captures from the pre-launch product, inside a plain browser frame */
+figure.screen { margin: 24px 0 0; }
+.shot { border: 1px solid var(--border-strong); border-radius: 6px 6px 0 0; background: var(--surface); overflow: hidden; }
+.shot-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+.shot-bar i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); }
+.shot img { display: block; width: 100%; height: auto; }
+.shot.phone { max-width: 300px; }
+figure.screen figcaption { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 10px; }
+.screen-note { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 12px; }
+.screens2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.screens2 .checkout { margin-top: 0; }
+@media (max-width: 640px) {
+  .screens2 { grid-template-columns: 1fr; gap: 28px; }
+}
