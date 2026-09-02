@@ -65,6 +65,7 @@ li:last-child { margin-bottom: 0; }
 .site-head nav a[aria-current="page"] { color: var(--navy); border-bottom-color: var(--navy); }
 .head-contact { margin-left: auto; font-family: var(--font-ui); font-size: 14.5px; color: var(--text-secondary); text-decoration: none; }
 .head-contact:hover { color: var(--accent); }
+.site-head .btn { margin-left: auto; padding: 10px 16px; font-size: 14.5px; }
 
 /* Sections */
 section { padding: 88px 0; border-top: 1px solid var(--border); }
@@ -81,6 +82,54 @@ section.tight { padding: 64px 0; }
 .hero .next { margin-top: 18px; max-width: 620px; }
 .hero .who { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--border-strong); max-width: 620px; }
 .hero .who p { font-family: var(--font-ui); font-size: 15.5px; color: var(--text-secondary); margin-bottom: 6px; }
+
+/* Home hero: copy left, product screen right */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; }
+.hero-grid h1 { max-width: 16ch; }
+.hero-grid .lead { max-width: 560px; }
+.hero-visual { display: flex; flex-direction: column; align-items: flex-end; }
+.hero-visual .shot { width: 100%; max-width: 480px; box-shadow: 0 18px 40px rgba(15, 39, 68, 0.10); }
+.hero-visual .screen-note { align-self: flex-end; max-width: 480px; width: 100%; }
+
+/* Proof bar */
+.proof { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
+.proof .wrap { display: flex; flex-wrap: wrap; gap: 8px 0; align-items: baseline; }
+.proof span { font-family: var(--font-ui); font-size: 14.5px; color: var(--text-secondary); }
+.proof span + span::before { content: "\00b7"; margin: 0 14px; color: var(--border-strong); }
+
+/* Section heading inside the content column */
+.row h2 { margin-bottom: 24px; }
+.row .lead + .cols3 { margin-top: 28px; }
+
+/* Problem: three short lines, ruled */
+.lines { border-top: 1px solid var(--border-strong); }
+.lines p { padding: 20px 0; border-bottom: 1px solid var(--border); margin: 0; font-size: 19px; line-height: 1.55; max-width: 680px; }
+.lines .small { font-size: 13.5px; padding: 12px 0 0; border: none; }
+
+/* FAQ */
+.faq { border-top: 1px solid var(--border-strong); }
+.faq details { border-bottom: 1px solid var(--border); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 20px 0; font-family: var(--font-ui); font-size: 18px; font-weight: 600; color: var(--navy); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-weight: 400; font-size: 22px; color: var(--text-muted); flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details > div { padding: 0 0 22px; max-width: 640px; }
+.faq details > div p { font-size: 17px; color: var(--text-secondary); }
+
+/* Final call to action */
+.panel .peers { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-family: var(--font-ui); font-size: 15px; color: #c9d4e4; max-width: 620px; }
+.panel .peers a { color: #ffffff; }
+.panel .actions { margin-top: 8px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+.panel .link-arrow { color: #ffffff; }
+.panel .link-arrow:hover { color: #dfe6f0; }
+
+/* Pricing page */
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.pricing-grid > div { border-top: 2px solid var(--navy); padding-top: 18px; }
+.pricing-grid h3 { margin-bottom: 10px; }
+.pricing-grid p { font-size: 16.5px; color: var(--text-secondary); }
+.never { list-style: none; padding: 0; margin-top: 8px; border-top: 1px solid var(--border-strong); }
+.never li { padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0; }
 
 /* Checkout illustration: HTML and CSS only, no image files, no figures */
 .checkout { max-width: 560px; background: var(--surface); border: 1px solid var(--border-strong); padding: 26px 28px 28px; margin-top: 8px; font-family: var(--font-ui); }
@@ -166,6 +215,11 @@ dl.meta dd p { font-size: 16.5px; }
   .row .side { position: static; }
   .cols3 { grid-template-columns: 1fr; gap: 28px; }
   .panel { padding: 40px 32px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-grid h1 { max-width: 20ch; }
+  .hero-visual { align-items: flex-start; }
+  .hero-visual .screen-note { align-self: flex-start; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 640px) {
   body { font-size: 16.5px; }
@@ -177,6 +231,11 @@ dl.meta dd p { font-size: 16.5px; }
   .site-head nav { width: 100%; order: 3; gap: 18px; overflow-x: auto; padding-bottom: 2px; }
   .site-head nav a { font-size: 14.5px; white-space: nowrap; }
   .head-contact { display: none; }
+  .site-head .btn { padding: 8px 12px; font-size: 13.5px; }
+  .lines p { font-size: 17.5px; }
+  .faq summary { font-size: 16.5px; }
+  .proof .wrap { flex-direction: column; gap: 6px; }
+  .proof span + span::before { content: none; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .steps li { grid-template-columns: 44px 1fr; gap: 14px; padding: 22px 0; }
   .steps li::before { font-size: 24px; }
@@ -195,6 +254,12 @@ figure.screen { margin: 24px 0 0; }
 .shot-bar i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); }
 .shot img { display: block; width: 100%; height: auto; }
 .shot.phone { max-width: 300px; }
+.shot.portrait { max-width: 640px; }
+.steps .shot { margin-top: 18px; }
+.steps figure.screen { margin-top: 8px; max-width: none; }
+.steps .checkout { margin-top: 18px; max-width: 640px; }
+.steps p.screen-note, .steps figure.screen figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); max-width: none; }
+.cover-line .more { display: inline; font-family: var(--font-ui); font-size: 13.5px; }
 figure.screen figcaption { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 10px; }
 .screen-note { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 12px; }
 .screens2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
