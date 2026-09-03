@@ -96,11 +96,12 @@ section.tight { padding: 64px 0; }
 .hero-visual figure.screen { margin: 0; }
 .hero-visual .checkout { margin-top: 0; box-shadow: 0 18px 40px rgba(15, 39, 68, 0.10); }
 
-/* Proof bar */
+/* Proof bar: the three facts, and the line that keeps the middle one true */
 .proof { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
-.proof .wrap { display: flex; flex-wrap: wrap; gap: 8px 0; align-items: baseline; }
-.proof span { font-family: var(--font-ui); font-size: 14.5px; color: var(--text-secondary); }
-.proof span + span::before { content: "\00b7"; margin: 0 14px; color: var(--border-strong); }
+.proof .items { display: flex; flex-wrap: wrap; gap: 8px 0; align-items: baseline; }
+.proof span { font-family: var(--font-ui); font-size: 15.5px; font-weight: 500; color: var(--navy); }
+.proof span + span::before { content: "\00b7"; margin: 0 14px; font-weight: 400; color: var(--border-strong); }
+.proof .proof-note { font-family: var(--font-ui); font-size: 13px; color: var(--text-muted); margin: 8px 0 0; max-width: 640px; }
 
 /* Section heading inside the content column */
 .row h2 { margin-bottom: 24px; }
@@ -239,7 +240,7 @@ dl.meta dd p { font-size: 16.5px; }
   .site-head .btn { padding: 8px 12px; font-size: 13.5px; }
   .lines p { font-size: 17.5px; }
   .faq summary { font-size: 16.5px; }
-  .proof .wrap { flex-direction: column; gap: 6px; }
+  .proof .items { flex-direction: column; gap: 6px; }
   .proof span + span::before { content: none; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .steps li { grid-template-columns: 44px 1fr; gap: 14px; padding: 22px 0; }
@@ -255,7 +256,7 @@ dl.meta dd p { font-size: 16.5px; }
   dl.meta dd { padding-top: 2px; }
 }
 
-/* Product screens: real captures from the pre-launch product, inside a plain browser frame */
+/* Product screens: real captures from the product, inside a plain browser frame */
 figure.screen { margin: 24px 0 0; }
 .shot { width: 100%; max-width: var(--screen-full); border: 1px solid var(--border-strong); border-radius: 6px 6px 0 0; background: var(--surface); overflow: hidden; }
 .shot-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
