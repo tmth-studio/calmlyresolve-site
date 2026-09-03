@@ -16,6 +16,11 @@
   --font-body: 'Lora', Georgia, serif;
   --wrap: 1080px;
   --measure: 640px;
+  /* The product-screen scale. Two widths only, never a third.
+     Full column: a screen the reader has to read.
+     Half column: a screen the reader only has to recognise. */
+  --screen-full: 672px;
+  --screen-half: 336px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -87,9 +92,9 @@ section.tight { padding: 64px 0; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; }
 .hero-grid h1 { max-width: 16ch; }
 .hero-grid .lead { max-width: 560px; }
-.hero-visual { display: flex; flex-direction: column; align-items: flex-end; }
-.hero-visual .shot { width: 100%; max-width: 480px; box-shadow: 0 18px 40px rgba(15, 39, 68, 0.10); }
-.hero-visual .screen-note { align-self: flex-end; max-width: 480px; width: 100%; }
+.hero-visual { display: flex; flex-direction: column; align-items: stretch; }
+.hero-visual figure.screen { margin: 0; }
+.hero-visual .checkout { margin-top: 0; box-shadow: 0 18px 40px rgba(15, 39, 68, 0.10); }
 
 /* Proof bar */
 .proof { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
@@ -132,7 +137,7 @@ section.tight { padding: 64px 0; }
 .never li { padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0; }
 
 /* Checkout illustration: HTML and CSS only, no image files, no figures */
-.checkout { max-width: 560px; background: var(--surface); border: 1px solid var(--border-strong); padding: 26px 28px 28px; margin-top: 8px; font-family: var(--font-ui); }
+.checkout { width: 100%; max-width: var(--screen-full); background: var(--surface); border: 1px solid var(--border-strong); padding: 26px 28px 28px; margin-top: 8px; font-family: var(--font-ui); }
 .checkout-head { display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
 .checkout-site { display: inline-block; width: 92px; height: 14px; background: var(--border-strong); border-radius: 2px; }
 .checkout-title { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-left: auto; }
@@ -239,6 +244,9 @@ dl.meta dd p { font-size: 16.5px; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .steps li { grid-template-columns: 44px 1fr; gap: 14px; padding: 22px 0; }
   .steps li::before { font-size: 24px; }
+  /* On a phone, let a screen use the step number's gutter as well. It is the
+     only way a product screen stays readable at this width. */
+  .steps figure.screen, .steps .checkout { margin-left: -58px; width: calc(100% + 58px); }
   .panel { padding: 32px 24px; }
   .start { padding: 26px 22px; }
   .checkout { padding: 20px 18px 22px; }
@@ -249,15 +257,14 @@ dl.meta dd p { font-size: 16.5px; }
 
 /* Product screens: real captures from the pre-launch product, inside a plain browser frame */
 figure.screen { margin: 24px 0 0; }
-.shot { border: 1px solid var(--border-strong); border-radius: 6px 6px 0 0; background: var(--surface); overflow: hidden; }
+.shot { width: 100%; max-width: var(--screen-full); border: 1px solid var(--border-strong); border-radius: 6px 6px 0 0; background: var(--surface); overflow: hidden; }
 .shot-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
 .shot-bar i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); }
 .shot img { display: block; width: 100%; height: auto; }
-.shot.phone { max-width: 300px; }
-.shot.portrait { max-width: 640px; }
+.shot.half { max-width: var(--screen-half); }
 .steps .shot { margin-top: 18px; }
 .steps figure.screen { margin-top: 8px; max-width: none; }
-.steps .checkout { margin-top: 18px; max-width: 640px; }
+.steps .checkout { margin-top: 18px; }
 .steps p.screen-note, .steps figure.screen figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); max-width: none; }
 .cover-line .more { display: inline; font-family: var(--font-ui); font-size: 13.5px; }
 figure.screen figcaption { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 10px; }
