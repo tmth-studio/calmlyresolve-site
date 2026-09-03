@@ -1,17 +1,27 @@
-/* Calmly Resolve — public site stylesheet. House palette: DM Sans for UI and headings, Lora for prose. */
+/* Calmly Resolve — public site stylesheet. DM Sans for UI and headings, Lora for prose.
+   Colour is the venture's own 2021 brand, taken from the shipped stylesheet of the
+   2.0 site (Webflow, generated 13 Oct 2021). Full record and provenance:
+   06-Resources/Dex_System/Calmly_Brand_Palette.md
+   Brand values used as-is: #082D5F navy, #125EEB blue, #FFFCFA warm white,
+   #EFF1FC pale blue, #FFB325 orange flare, #AAADB0 grey.
+   Where a brand value did not clear 4.5:1 on the ground it sits on, it is darkened
+   one step and the derivation is noted against the token. */
 :root {
-  --bg: #f5f4f1;
-  --surface: #ffffff;
-  --text: #0f1923;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
-  --border: #dde1e7;
-  --border-strong: #b0b8c4;
-  --accent: #1f4fa8;
-  --accent-dark: #17408a;
-  --accent-light: #e8eef8;
-  --navy: #0f2744;
-  --red: #b91c1c;
+  --bg: #f6f1ec;          /* page ground — brand warm white taken one step down so the
+                             alternating white sections stay visible */
+  --surface: #fffcfa;     /* brand warm white — header, footer, .white sections, cards */
+  --text: #082d5f;        /* brand navy: the 2021 site set body copy in it too */
+  --text-secondary: #455568;  /* brand slate #5D6C7B darkened to clear AA (6.4:1) */
+  --text-muted: #5f6e7e;      /* brand grey #758696 darkened to clear AA (4.6:1) */
+  --border: #e4ded8;      /* neutral brand grey warmed to sit on the warm ground */
+  --border-strong: #aaadb0;
+  --accent: #125eeb;      /* brand blue — links, buttons, active states */
+  --accent-dark: #0e4bbc;
+  --accent-light: #eff1fc;
+  --navy: #082d5f;
+  --flare: #ffb325;       /* brand orange. Emphasis only, never a primary action, and
+                             never as text on a light ground (1.6:1 there). */
+  --red: #cc2233;         /* brand red #EA384C darkened to clear AA (4.8:1) */
   --font-ui: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Lora', Georgia, serif;
   --wrap: 1080px;
@@ -94,7 +104,7 @@ section.tight { padding: 64px 0; }
 .hero-grid .lead { max-width: 560px; }
 .hero-visual { display: flex; flex-direction: column; align-items: stretch; }
 .hero-visual figure.screen { margin: 0; }
-.hero-visual .checkout { margin-top: 0; box-shadow: 0 18px 40px rgba(15, 39, 68, 0.10); }
+.hero-visual .checkout { margin-top: 0; box-shadow: 0 18px 40px rgba(8, 45, 95, 0.12); }
 
 /* Proof bar: the three facts, and the line that keeps the middle one true */
 .proof { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
@@ -123,11 +133,11 @@ section.tight { padding: 64px 0; }
 .faq details > div p { font-size: 17px; color: var(--text-secondary); }
 
 /* Final call to action */
-.panel .peers { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-family: var(--font-ui); font-size: 15px; color: #c9d4e4; max-width: 620px; }
+.panel .peers { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-family: var(--font-ui); font-size: 15px; color: #c3d0ea; max-width: 620px; }
 .panel .peers a { color: #ffffff; }
 .panel .actions { margin-top: 8px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
 .panel .link-arrow { color: #ffffff; }
-.panel .link-arrow:hover { color: #dfe6f0; }
+.panel .link-arrow:hover { color: #dce4f6; }
 
 /* Pricing page */
 .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -147,7 +157,7 @@ section.tight { padding: 64px 0; }
 .bar { display: inline-block; height: 11px; background: var(--border); border-radius: 2px; }
 .bar.dark { background: var(--border-strong); height: 12px; }
 .w14 { width: 14%; } .w18 { width: 18%; } .w24 { width: 24%; } .w40 { width: 40%; } .w60 { width: 60%; }
-.cover-line { border: 1px solid var(--accent); border-left-width: 4px; background: var(--accent-light); padding: 14px 16px; margin-bottom: 20px; }
+.cover-line { border: 1px solid var(--accent); border-left: 4px solid var(--flare); background: var(--accent-light); padding: 14px 16px; margin-bottom: 20px; }
 .cover-mark { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
 .cover-line p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: var(--text); }
 .checkout-btn { display: block; text-align: center; font-size: 15px; font-weight: 600; color: #ffffff; background: var(--navy); padding: 12px; border-radius: 3px; }
@@ -181,13 +191,13 @@ section.tight { padding: 64px 0; }
 
 /* The one panel */
 .panel { background: var(--navy); color: #ffffff; padding: 56px; }
-.panel .eyebrow { color: #a9b8d0; }
+.panel .eyebrow { color: var(--flare); }
 .panel h2 { color: #ffffff; max-width: 22ch; }
-.panel p { color: #dfe6f0; max-width: 620px; }
+.panel p { color: #dce4f6; max-width: 620px; }
 .panel a { color: #ffffff; }
-.panel a:hover { color: #dfe6f0; }
+.panel a:hover { color: #dce4f6; }
 .panel .btn { background: #ffffff; color: var(--navy); margin-top: 8px; }
-.panel .btn:hover { background: #e8eef8; color: var(--navy); }
+.panel .btn:hover { background: #eff1fc; color: var(--navy); }
 
 /* Inset, warning, quote */
 .inset { border-left: 4px solid var(--accent); background: var(--accent-light); padding: 18px 22px; margin: 20px 0; }
@@ -259,7 +269,9 @@ dl.meta dd p { font-size: 16.5px; }
 /* Product screens: real captures from the product, inside a plain browser frame */
 figure.screen { margin: 24px 0 0; }
 .shot { width: 100%; max-width: var(--screen-full); border: 1px solid var(--border-strong); border-radius: 6px 6px 0 0; background: var(--surface); overflow: hidden; }
-.shot-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+/* The frame bar takes the border tone, not the page ground: on the warm ground the
+   two were the same colour and the frame stopped reading as a frame. */
+.shot-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; background: var(--border); border-bottom: 1px solid var(--border-strong); }
 .shot-bar i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); }
 .shot img { display: block; width: 100%; height: auto; }
 .shot.half { max-width: var(--screen-half); }
