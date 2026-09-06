@@ -287,3 +287,21 @@ figure.screen figcaption { font-family: var(--font-ui); font-size: 13px; letter-
 @media (max-width: 640px) {
   .screens2 { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* Reckoner: the arithmetic a site does on its own numbers. A table, not a
+   calculator — nothing here needs scripting, and a printed page keeps working. */
+.formula { font-family: var(--font-ui); font-size: 17px; font-weight: 500; line-height: 1.5; color: var(--navy); background: var(--accent-light); border-left: 4px solid var(--accent); padding: 18px 22px; margin: 4px 0 20px; }
+.table-scroll { overflow-x: auto; margin-top: 8px; }
+table.reckoner { width: 100%; border-collapse: collapse; font-family: var(--font-ui); }
+table.reckoner caption { text-align: left; font-family: var(--font-ui); font-size: 14px; color: var(--text-muted); padding-bottom: 14px; }
+table.reckoner th, table.reckoner td { padding: 13px 12px; border-bottom: 1px solid var(--border); font-size: 16px; text-align: right; white-space: nowrap; }
+table.reckoner th:first-child, table.reckoner td:first-child { text-align: left; padding-left: 0; }
+table.reckoner th:last-child, table.reckoner td:last-child { padding-right: 0; }
+table.reckoner thead th { font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--navy); vertical-align: bottom; white-space: normal; line-height: 1.35; }
+table.reckoner tbody td { font-variant-numeric: tabular-nums; color: var(--text); }
+table.reckoner tbody tr:last-child td { border-bottom: none; }
+
+/* An unset term, marked so nobody mistakes it for a published figure. */
+.placeholder { display: inline-block; font-family: var(--font-ui); font-size: 0.95em; font-weight: 600; color: var(--red); border: 1px dashed var(--red); border-radius: 3px; padding: 0 8px; white-space: nowrap; }
+.keeps { border-left: 4px solid var(--flare); background: var(--surface); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 22px; margin: 18px 0 0; }
+.keeps p { font-size: 16.5px; }
