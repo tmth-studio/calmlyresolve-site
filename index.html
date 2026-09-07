@@ -121,16 +121,16 @@
             </div>
             <div class="calc-row">
               <label for="fee">The cover fee you would set</label>
-              <input id="fee" type="text" inputmode="decimal" value="2.50">
+              <input id="fee" type="text" inputmode="decimal" value="3.13">
             </div>
             <div class="calc-row">
               <label for="atv">Your average transaction value</label>
               <input id="atv" type="text" inputmode="decimal" value="250">
             </div>
             <div class="calc-out">
-              <div><span class="calc-lab">Your checkout collects</span><strong id="collects">&pound;250,000</strong></div>
-              <div><span class="calc-lab">You keep</span><strong id="keeps" class="calc-big">&pound;187,500</strong></div>
-              <div><span class="calc-lab">The fee, to your buyer</span><strong id="pct">1.00% of the transaction</strong></div>
+              <div><span class="calc-lab">Your checkout collects</span><strong id="collects">&pound;313,000</strong></div>
+              <div><span class="calc-lab">You keep</span><strong id="keeps" class="calc-big">&pound;234,750</strong></div>
+              <div><span class="calc-lab">The fee, to your buyer</span><strong id="pct">1.25% of the transaction</strong></div>
             </div>
             <p class="calc-note" id="note"></p>
           </div>
@@ -141,8 +141,8 @@
 
           <p class="small">You keep 75% of what you collect as standard. The wholesale price we charge is a quarter of the
           standard cover fee for your transaction size, taken out of money already in your account, so nothing is
-          invoiced to you and nothing is charged per dispute. The standard fee is 1% of the transaction, with a
-          minimum of &pound;1 and no more than &pound;100. Founding sites are on different terms.</p>
+          invoiced to you and nothing is charged per dispute. The standard fee is 1.25% of the transaction, with a
+          minimum of &pound;1 and no more than &pound;125. Founding sites are on different terms.</p>
 
           <h3 style="margin-top:34px">Two things decide the right fee</h3>
           <p>What it is as a share of a typical transaction on your site, and what comparable cover costs elsewhere. Marketplace buyer protection and event refund protection both publish their prices. We put those comparators next to your own numbers when we build your benchmark.</p>
@@ -200,9 +200,9 @@
 <script>
 (function(){
   var SHARE = 0.75;            // standing share to the site
-  var RATE  = 0.01;            // standard cover fee: 1% of transaction value
+  var RATE  = 0.0125;          // standard cover fee: 1.25% of transaction value (rate card, v2.3, 7 Sep 2026)
   var MINF  = 1.00;            // the fee does not go below this
-  var CAPF  = 100.00;          // the fee stops rising at the £10,000 claim cap
+  var CAPF  = 125.00;          // the fee stops rising at the £10,000 claim cap
   var n = function(el){ return parseFloat((document.getElementById(el).value||'').replace(/[^0-9.]/g,'')) || 0; };
   var money = function(v){ return '\u00a3' + Math.round(v).toLocaleString('en-GB'); };
   function calc(){
