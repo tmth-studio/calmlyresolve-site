@@ -121,16 +121,16 @@
             </div>
             <div class="calc-row">
               <label for="fee">The cover fee you would set</label>
-              <input id="fee" type="text" inputmode="decimal" value="2.00">
+              <input id="fee" type="text" inputmode="decimal" value="2.50">
             </div>
             <div class="calc-row">
               <label for="atv">Your average transaction value</label>
               <input id="atv" type="text" inputmode="decimal" value="250">
             </div>
             <div class="calc-out">
-              <div><span class="calc-lab">Your checkout collects</span><strong id="collects">&pound;200,000</strong></div>
-              <div><span class="calc-lab">You keep</span><strong id="keeps" class="calc-big">&pound;120,000</strong></div>
-              <div><span class="calc-lab">The fee, to your buyer</span><strong id="pct">0.80% of the transaction</strong></div>
+              <div><span class="calc-lab">Your checkout collects</span><strong id="collects">&pound;250,000</strong></div>
+              <div><span class="calc-lab">You keep</span><strong id="keeps" class="calc-big">&pound;187,500</strong></div>
+              <div><span class="calc-lab">The fee, to your buyer</span><strong id="pct">1.00% of the transaction</strong></div>
             </div>
             <p class="calc-note" id="note"></p>
           </div>
@@ -139,9 +139,10 @@
           It is what your buyer sees. For comparison, Vinted charges buyers a protection fee on every order and event
           refund protection is typically a single-figure percentage of the ticket.</p>
 
-          <p class="small">You keep 60% of what you collect as standard. We charge the rest as a wholesale price out of
-          money already in your account, so nothing is invoiced to you and nothing is charged per dispute. Founding sites
-          are on different terms. The fee level is yours and we do not recommend one.</p>
+          <p class="small">You keep 75% of what you collect as standard. The wholesale price we charge is a quarter of the
+          standard cover fee for your transaction size, taken out of money already in your account, so nothing is
+          invoiced to you and nothing is charged per dispute. The standard fee is 1% of the transaction, with a
+          minimum of &pound;1 and no more than &pound;100. Founding sites are on different terms.</p>
 
           <h3 style="margin-top:34px">Two things decide the right fee</h3>
           <p>What it is as a share of a typical transaction on your site, and what comparable cover costs elsewhere. Marketplace buyer protection and event refund protection both publish their prices. We put those comparators next to your own numbers when we build your benchmark.</p>
@@ -198,20 +199,23 @@
   </div></footer>
 <script>
 (function(){
-  var SHARE = 0.60;            // standing share to the site
-  var FLOOR = 0.31;            // wholesale floor per covered transaction
+  var SHARE = 0.75;            // standing share to the site
+  var RATE  = 0.01;            // standard cover fee: 1% of transaction value
+  var MINF  = 1.00;            // the fee does not go below this
+  var CAPF  = 100.00;          // the fee stops rising at the £10,000 claim cap
   var n = function(el){ return parseFloat((document.getElementById(el).value||'').replace(/[^0-9.]/g,'')) || 0; };
   var money = function(v){ return '\u00a3' + Math.round(v).toLocaleString('en-GB'); };
   function calc(){
     var vol = n('vol'), fee = n('fee'), atv = n('atv');
-    var wholesale = Math.max(FLOOR, fee * (1 - SHARE));
+    var standard  = Math.min(CAPF, Math.max(MINF, atv * RATE));
+    var wholesale = standard * (1 - SHARE);
     var keepPer = Math.max(0, fee - wholesale);
     document.getElementById('collects').textContent = money(vol * fee);
     document.getElementById('keeps').textContent = money(vol * keepPer);
     document.getElementById('pct').textContent = atv > 0 ? (fee / atv * 100).toFixed(2) + '% of the transaction' : '\u2014';
     var note = document.getElementById('note');
-    if (fee > 0 && fee < FLOOR / (1 - SHARE)) {
-      note.textContent = 'At this fee our floor applies, so you keep less than the standard share. Most sites set a fee above this.';
+    if (fee > 0 && fee < wholesale) {
+      note.textContent = 'At this fee you would keep nothing. The wholesale price is a quarter of the standard fee for your transaction size.';
     } else if (atv > 0 && fee / atv > 0.05) {
       note.textContent = 'That is a high share of a typical transaction on your site. Worth checking against what comparable cover costs.';
     } else { note.textContent = ''; }
