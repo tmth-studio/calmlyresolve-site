@@ -19,7 +19,7 @@
       <a href="#price">What it costs</a>
       <a href="/method/">Method</a>
     </nav>
-    <a class="btn" href="mailto:tom@calmlyresolve.com?subject=Benchmark">Get the benchmark</a>
+    <a class="btn" href="#calculator">See what it would earn you</a>
   </div></header>
 
   <main>
@@ -33,7 +33,7 @@
           <p class="lead">calmlyresolve.com is dispute cover you offer at your own checkout, on transactions worth &pound;200 to &pound;25,000. It gives your users the confidence to buy and sell things they otherwise would not.</p>
           <p class="next">You set the cover fee. You collect it at your checkout, and you keep the larger part of every one.</p>
           <div class="actions">
-            <a class="btn" href="mailto:tom@calmlyresolve.com?subject=Benchmark">Get the benchmark</a>
+            <a class="btn" href="#calculator">See what it would earn you</a>
             <a class="link-arrow" href="#how">See how it works</a>
           </div>
         </div>
@@ -109,34 +109,39 @@
         </div>
         <div>
           <h2>It costs you nothing. You are the one selling it.</h2>
-          <p>You set the cover fee at your checkout and you collect it. We charge a wholesale price out of what you have already collected, and you keep the larger part. You are never out of pocket, on any transaction, at any volume.</p>
+          <p>You set the cover fee at your checkout and you collect it. We charge a wholesale price out of what you have already collected, and you keep the larger part.</p>
 
-          <h3 style="margin-top:34px">Work out your own number</h3>
-          <p class="formula">covered transactions a year &nbsp;&times;&nbsp; the fee you set &nbsp;&times;&nbsp; your share &nbsp;=&nbsp; what you keep</p>
-          <p>The first two are yours to choose. The third is in your agreement, so it is marked below as a placeholder rather than guessed at.</p>
+          <h3 style="margin-top:34px" id="calculator">What it would earn you</h3>
+          <p>Put in your own numbers. Nothing is sent anywhere and nothing is stored.</p>
 
-          <div class="table-scroll">
-            <table class="reckoner">
-              <caption>Read each row per &pound;1 of the cover fee, then multiply by the fee you set. We do not set the fee and we do not recommend a level.</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Covered transactions a year</th>
-                  <th scope="col">Your checkout collects, per &pound;1 of fee</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>10,000</td><td>&pound;10,000</td></tr>
-                <tr><td>45,000</td><td>&pound;45,000</td></tr>
-                <tr><td>100,000</td><td>&pound;100,000</td></tr>
-                <tr><td>400,000</td><td>&pound;400,000</td></tr>
-                <tr><td>1,000,000</td><td>&pound;1,000,000</td></tr>
-              </tbody>
-            </table>
+          <div class="calc">
+            <div class="calc-row">
+              <label for="vol">Covered transactions a year</label>
+              <input id="vol" type="text" inputmode="numeric" value="100,000">
+            </div>
+            <div class="calc-row">
+              <label for="fee">The cover fee you would set</label>
+              <input id="fee" type="text" inputmode="decimal" value="2.00">
+            </div>
+            <div class="calc-row">
+              <label for="atv">Your average transaction value</label>
+              <input id="atv" type="text" inputmode="decimal" value="250">
+            </div>
+            <div class="calc-out">
+              <div><span class="calc-lab">Your checkout collects</span><strong id="collects">&pound;200,000</strong></div>
+              <div><span class="calc-lab">You keep</span><strong id="keeps" class="calc-big">&pound;120,000</strong></div>
+              <div><span class="calc-lab">The fee, to your buyer</span><strong id="pct">0.80% of the transaction</strong></div>
+            </div>
+            <p class="calc-note" id="note"></p>
           </div>
 
-          <div class="keeps">
-            <p><strong>You keep <span class="placeholder">your share</span> of the right-hand column.</strong> The share is written into your agreement rather than published here. What is settled either way: you keep the larger part, and what we charge comes out of money you have already collected.</p>
-          </div>
+          <p><strong>The fee as a share of the transaction is the number that decides it</strong>, not the annual total.
+          It is what your buyer sees. For comparison, Vinted charges buyers a protection fee on every order and event
+          refund protection is typically a single-figure percentage of the ticket.</p>
+
+          <p class="small">You keep 60% of what you collect as standard. We charge the rest as a wholesale price out of
+          money already in your account, so nothing is invoiced to you and nothing is charged per dispute. Founding sites
+          are on different terms. The fee level is yours and we do not recommend one.</p>
 
           <h3 style="margin-top:34px">Two things decide the right fee</h3>
           <p>What it is as a share of a typical transaction on your site, and what comparable cover costs elsewhere. Marketplace buyer protection and event refund protection both publish their prices. We put those comparators next to your own numbers when we build your benchmark.</p>
@@ -166,10 +171,14 @@
     <section class="white"><div class="wrap">
       <div class="panel">
         <div class="eyebrow">Start here</div>
-        <h2>Get the benchmark</h2>
-        <p>A one-page estimate on your own numbers, from public data: how many of your transactions fall inside the band, and what your checkout would collect and keep. Email <a href="mailto:tom@calmlyresolve.com?subject=Benchmark">tom@calmlyresolve.com</a> with the subject &ldquo;Benchmark&rdquo;. Tell us the site and roughly what a typical transaction is worth.</p>
+        <h2>Want the version with your real numbers in it?</h2>
+        <p>The calculator above runs on what you type. We will build the same thing from your own figures &mdash; how
+        many of your transactions fall inside the band, what a fee at your average transaction value looks like next to
+        published comparators, and what you would collect and keep. One page, no meeting needed to get it. Email
+        <a href="mailto:tom@calmlyresolve.com?subject=My%20numbers">tom@calmlyresolve.com</a> with your marketplace and
+        we will send it back.</p>
         <div class="actions">
-          <a class="btn" href="mailto:tom@calmlyresolve.com?subject=Benchmark">Get the benchmark</a>
+          <a class="btn" href="mailto:tom@calmlyresolve.com?subject=My%20numbers">Send me my numbers</a>
         </div>
       </div>
     </div></section>
@@ -187,5 +196,32 @@
     <p>calmlyresolve.com is a product of Tough Minds Tender Hearts Ltd, trading as Calmly Resolve, registered in England, company no. 16652453.</p>
     <p>&copy; 2026 Tough Minds Tender Hearts Ltd</p>
   </div></footer>
+<script>
+(function(){
+  var SHARE = 0.60;            // standing share to the site
+  var FLOOR = 0.31;            // wholesale floor per covered transaction
+  var n = function(el){ return parseFloat((document.getElementById(el).value||'').replace(/[^0-9.]/g,'')) || 0; };
+  var money = function(v){ return '\u00a3' + Math.round(v).toLocaleString('en-GB'); };
+  function calc(){
+    var vol = n('vol'), fee = n('fee'), atv = n('atv');
+    var wholesale = Math.max(FLOOR, fee * (1 - SHARE));
+    var keepPer = Math.max(0, fee - wholesale);
+    document.getElementById('collects').textContent = money(vol * fee);
+    document.getElementById('keeps').textContent = money(vol * keepPer);
+    document.getElementById('pct').textContent = atv > 0 ? (fee / atv * 100).toFixed(2) + '% of the transaction' : '\u2014';
+    var note = document.getElementById('note');
+    if (fee > 0 && fee < FLOOR / (1 - SHARE)) {
+      note.textContent = 'At this fee our floor applies, so you keep less than the standard share. Most sites set a fee above this.';
+    } else if (atv > 0 && fee / atv > 0.05) {
+      note.textContent = 'That is a high share of a typical transaction on your site. Worth checking against what comparable cover costs.';
+    } else { note.textContent = ''; }
+  }
+  ['vol','fee','atv'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) { el.addEventListener('input', calc); }
+  });
+  calc();
+})();
+</script>
 </body>
 </html>
